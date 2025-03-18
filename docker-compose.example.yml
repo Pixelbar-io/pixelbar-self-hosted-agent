@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  pixelbar-agent:
+    image: pixelbar-agent:latest
+ 
+    container_name: pixelbar-agent
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - HOST=0.0.0.0
+      - LOG_LEVEL=info
+      # Comment out the line below to disable API key authentication (accept all requests)
+      # check https://app.pixelbar.io/settings/self-hosting/ for your API key
+      - PIXELBAR_API_KEY=your_secret_key_here
+ 
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s 
