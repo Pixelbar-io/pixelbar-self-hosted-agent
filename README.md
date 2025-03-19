@@ -98,6 +98,16 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ## API Documentation
 
 
+### Finding Your Screen ID
+
+To use the screen-specific API endpoints, you'll need your screen's unique ID:
+
+1. Log in to your Pixelbar dashboard at [app.pixelbar.io](https://app.pixelbar.io/)
+2. Navigate to the Screens section
+3. Select your screen - the UUID is displayed in the screen details
+
+![Screen UUID Location](docs/screen_uuid.png)
+
 ### Authentication
 
 API requests require authentication using an API key:
